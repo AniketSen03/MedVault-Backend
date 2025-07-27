@@ -2,6 +2,10 @@ const express = require("express");
 const router = express.Router();
 const Cart = require("../models/model.cart"); // make sure path is correct
 
+router.get("/cart", (req, res) => {
+  res.send("Cart endpoint is ready to receive POST requests.");
+});
+
 router.post("/cart", async (req, res) => {
   try {
     const { user, items } = req.body;

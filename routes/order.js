@@ -2,6 +2,10 @@ const express = require('express');
 const router = express.Router();
 const Order = require('../models/model.order');
 
+router.get("/order", (req, res) => {
+  res.send("Order endpoint is ready to receive POST requests.");
+});
+
 // Create Order
 router.post('/order', async (req, res) => {
   try {

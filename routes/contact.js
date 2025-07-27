@@ -2,6 +2,10 @@ const express = require("express");
 const router = express.Router();
 const Contact = require("../models/models.contact");
 
+router.get("/contact", (req, res) => {
+  res.send("Contact endpoint is ready to receive POST requests.");
+});
+
 router.post("/contact", async (req, res) => {
   try {
     const { name, email, phone, message } = req.body;

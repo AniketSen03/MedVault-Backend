@@ -9,10 +9,17 @@ const cartRoutes = require("./routes/cart");
 const orderRoutes = require('./routes/order');
 const contactRoutes = require("./routes/contact");
 
+
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: "https://med-vault-lake.vercel.app/",
+  credentials: true
+}));;
 app.use(express.json());
 
+app.get("/", (req, res) => {
+  res.send("Server is runing...");
+});
 // MongoDB connection
 mongoose
   .connect("mongodb://127.0.0.1:27017/MedVault")
