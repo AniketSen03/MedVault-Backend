@@ -12,8 +12,7 @@ const contactRoutes = require("./routes/contact");
 
 const app = express();
 app.use(cors({
-  origin: "https://med-vault-lake.vercel.app/",
-  credentials: true
+  origin: "https://med-vault-lake.vercel.app",
 }));;
 app.use(express.json());
 
