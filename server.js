@@ -4,11 +4,11 @@ const cors = require("cors");
 require("dotenv").config();
 
 
-const signuproutes = require("./routes/signup");
-const loginRoutes = require("./routes/login");
-const cartRoutes = require("./routes/cart");
-const orderRoutes = require('./routes/order');
-const contactRoutes = require("./routes/contact");
+const signuproutes = require("./api/signup");
+const loginRoutes = require("./api/login");
+const cartRoutes = require("./api/cart");
+const orderRoutes = require('./api/order');
+const contactRoutes = require("./api/contact");
 
 
 const app = express();

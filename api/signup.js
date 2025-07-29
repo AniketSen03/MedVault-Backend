@@ -4,12 +4,12 @@ const router = express.Router();
 const bcrypt = require("bcrypt");
 const User = require("../models/model.signup"); 
 
-router.get("/signup", (req, res) => {
+router.get("/api/signup", (req, res) => {
   res.send("Singup endpoint is ready to receive POST requests.");
 });
 
 // Signup Route
-router.post("/signup", async (req, res) => {
+router.post("/api/signup", async (req, res) => {
   const { name, email, password } = req.body;
 
   try {
