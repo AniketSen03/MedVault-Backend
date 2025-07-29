@@ -1,7 +1,8 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
-const PORT = 3000;
+require("dotenv").config();
+
 
 const signuproutes = require("./routes/signup");
 const loginRoutes = require("./routes/login");
@@ -11,6 +12,10 @@ const contactRoutes = require("./routes/contact");
 
 
 const app = express();
+
+const PORT = process.env.PORT || 3000;
+
+
 app.use(cors({
   origin: "https://med-vault-lake.vercel.app",
 }));;
@@ -21,7 +26,7 @@ app.get("/", (req, res) => {
 });
 // MongoDB connection
 mongoose
-  .connect("mongodb://127.0.0.1:27017/MedVault")
+  .connect(process.env.MONGO_URI)
   .then(() => console.log("MongoDB connected"))
   .catch((err) => console.error("MongoDB connection error:", err));
 
