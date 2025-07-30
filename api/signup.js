@@ -13,12 +13,12 @@ router.post("/api/signup", async (req, res) => {
   const { name, email, password } = req.body;
 
   try {
-    const existingUser = await User.findOne({ email });
+    const existingUser = await User.findOne({ email: email.toLowerCase()  });
     if (existingUser)
       return res.status(400).json({ message: "Email already registered" });
 
     const hashedPassword = await bcrypt.hash(password, 10);
-    const newUser = new User({ name, email, password: hashedPassword });
+    const newUser = new User({  name, email: email.toLowerCase(), password: hashedPassword });
     await newUser.save();
 
     res.status(201).json({ message: "Signup successful", user: newUser });
